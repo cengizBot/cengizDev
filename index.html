@@ -3,48 +3,110 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Mon Nom - Site Vitrine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurt Cengiz Portfolio</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin-bottom: 2em;
-        }
-
-        a.button {
+        /* Curseur clignotant */
+        .cursor {
             display: inline-block;
-            margin: 0.5em;
-            padding: 0.7em 1.5em;
-            background-color: #008CBA;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
+            color: #00ffea;
+            font-weight: bold;
+            margin-left: 2px;
         }
 
-        a.button:hover {
-            background-color: #005f73;
+        @keyframes blink {
+
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+
+        .animate-blink {
+            animation: blink 1s infinite;
+        }
+
+        /* Background decorative shapes */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.6;
+            z-index: -1;
         }
     </style>
 </head>
 
-<body>
-    <h1>Prénom Nom</h1>
-    <p>Développeur / Software Creator / Description courte</p>
-    <a href="#" class="button">Mes Projets</a>
-    <a href="#" class="button">Contact</a>
+<body class="bg-gray-900 text-white min-h-screen relative overflow-hidden flex items-center justify-center">
+
+    <!-- Decorative shapes -->
+    <div class="shape bg-purple-500 w-72 h-72 top-[-80px] left-[-60px]"></div>
+    <div class="shape bg-teal-400 w-96 h-96 bottom-[-120px] right-[-80px]"></div>
+    <div class="shape bg-pink-500 w-56 h-56 top-[200px] right-[-60px]"></div>
+
+    <div class="text-center px-4 sm:px-6 lg:px-8 max-w-2xl space-y-12 relative z-10">
+        <!-- Nom et prénom -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold">
+            Kurt Cengiz
+        </h1>
+
+        <!-- Description avec typewriter -->
+        <div class="mx-auto max-w-full sm:max-w-[350px] md:max-w-[600px] break-words text-left">
+            <p id="description" class="text-center text-gray-300 text-base sm:text-lg md:text-xl inline-block"></p>
+            <span class="cursor animate-blink" id="cursor">|</span>
+        </div>
+
+        <!-- Boutons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-6 mt-8">
+            <a href="cv.pdf" target="_blank"
+                class="flex justify-center items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded transition-all duration-300 w-full max-w-xs mx-auto">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0 4h8v2H8v-2z" />
+                </svg>
+                <span class="truncate text-center">Download CV</span>
+            </a>
+
+            <a href="https://github.com/cengizBot" target="_blank"
+                class="flex justify-center items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-semibold py-3 px-8 rounded transition-all duration-300 w-full max-w-xs mx-auto">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M12 0C5.372 0 0 5.372 0 12c0 5.303 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605-2.665-.303-5.466-1.334-5.466-5.933 0-1.31.47-2.382 1.236-3.222-.124-.303-.536-1.523.116-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.018.005 2.043.137 3.002.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.912 1.235 3.222 0 4.61-2.804 5.625-5.475 5.921.43.372.814 1.102.814 2.222 0 1.604-.014 2.896-.014 3.287 0 .32.216.694.825.576C20.565 21.796 24 17.303 24 12c0-6.628-5.373-12-12-12z" />
+                </svg>
+                <span class="truncate text-center">GitHub</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const text = "Passionate developer 🖥️, always seeking new skills. 🧰 I consider myself a versatile, curious, and autonomous toolkit.";
+        const description = document.getElementById("description");
+        const cursor = document.getElementById("cursor");
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                const span = document.createElement('span');
+                span.textContent = text.charAt(index);
+                description.appendChild(span);
+                index++;
+                description.appendChild(cursor); // garde le curseur à la fin
+                setTimeout(typeWriter, 50);
+            }
+        }
+
+        typeWriter();
+    </script>
 </body>
 
 </html>
